@@ -1,0 +1,55 @@
+@startuml
+package "Svelte Components" {
+  [Header.svelte] - [Sidebar.svelte]
+  [TestTable.svelte]
+  [TestCaseDetailsComponent.svelte]
+  [RightConstantBar.svelte]
+  [CommentsSection.svelte]
+  [SprintTable.svelte]
+
+}
+
+package "Stores" {
+  [TokenStore.js]
+  [blockerStore]
+  [userStore.js]
+}
+
+package "Svelte Pages" {
+  [TestCaseOverview.svelte]
+  [Dashboard.svelte]
+  [TestCaseDetails.svelte]
+  [Login.svelte]
+  [SprintDetail.svelte]
+  [Sprints.svelte]
+  [Notifications.svelte]
+  [AccountManager.svelte]
+  [Modules.svelte]
+  [addTest.svelte]
+  [EditTestCasePage.svelte]
+}
+
+
+
+
+[TestTable.svelte] --> [TestCaseOverview.svelte]
+[TestTable.svelte] --> [Dashboard.svelte]
+
+[Header.svelte] --> [blockerStore]
+[Header.svelte] --> [userStore.js]
+[RightConstantBar.svelte] --> [userStore.js]
+[Login.svelte] --> [userStore.js]
+[Login.svelte] --> [TokenStore.js]
+[TestCaseDetails.svelte] --> [TestCaseDetailsComponent.svelte]
+[TestCaseDetails.svelte] --> [RightConstantBar.svelte]
+[Sprints.svelte] --> [SprintTable.svelte]
+[Sprints.svelte] --> [userStore.js]
+[Notifications.svelte] --> [blockerStore]
+[TestCaseDetails.svelte] -->[TestCaseDetailsComponent.svelte]
+[TestCaseDetails.svelte] -->[RightConstantBar.svelte]
+[app.svelte] --> [Svelte Pages]
+[app.svelte] --> [Svelte Components]
+[SprintDetail.svelte] --> [userStore.js]
+[Modules.svelte] --> [userStore.js]
+
+@enduml

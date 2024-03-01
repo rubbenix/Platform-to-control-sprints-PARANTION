@@ -1,0 +1,15 @@
+###
+### Retrieve a token that can be used for calls requiring authentication
+###
+POST {{protocol}}{{host}}:{{port}}/token
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "manager",
+  "password": "manager"
+}
+
+> {%
+client.global.set("token", response.body.token);
+%}
